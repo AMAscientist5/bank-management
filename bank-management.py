@@ -18,16 +18,16 @@ class Bank:
               return user
         return None
     
-    def depositBankBalance(self, amount):
+    def depositBalance(self, amount):
         self.bankBalance += amount
 
-    def checkBalanceBank(self):
+    def checkBalance(self):
         print('\n---------welcome to bank------------')
         print(f'Total balance of the bank : {self.bankBalance} ')
         print('-------------------------------------')
         return ''
 
-    def withdrawBankBalance(self, amount):
+    def withdrawBalance(self, amount):
         self.bankBalance -= amount
 
     def updateTotalLoan(self, amount):
@@ -64,7 +64,7 @@ class Bank:
         
 
        
-    def loanFetureOnOff(self,value):
+    def loanFeatureOnOff(self,value):
         if value ==1:
             self.loanActive=True
             print('\n-------welcome to the bank--------')    
@@ -76,7 +76,7 @@ class Bank:
             print(f'loan feature off successfully !!')
             print('-----------------------------------')
 
-    def withdrawFetureOnOff(self,value):
+    def withdrawFeatureOnOff(self,value):
         if value ==1:
             self.withdrawActive=True
             print('\n---------welcome to the bank----------')    
@@ -118,7 +118,7 @@ class User:
 
         else:
             self.balance += amount
-            self.bank.depositBankBalance(amount)
+            self.bank.depositBalance(amount)
             description = 'deposit'
             info = {description: amount}
             self.transactionHistory.append(info)
@@ -156,7 +156,7 @@ class User:
         if self.bank.withdrawActive:
             if amount <= self.balance:
                 self.balance -= amount
-                self.bank.withdrawBankBalance(amount)
+                self.bank.withdrawBalance(amount)
                 description = 'withdraw'
                 info = {description: amount}
                 self.transactionHistory.append(info)
@@ -297,16 +297,16 @@ while(flag):
                 sonali.showAllAcount()
                
             elif op==4:
-                  sonali.checkBalanceBank()
+                  sonali.checkBalance()
             elif op==5:
                 sonali.showTotalLoan()
             elif op ==6:
                 value=input('if you loan feature on/off please write (on/off) key word: ')
                 if value=='on':
-                    sonali.loanFetureOnOff(1)
+                    sonali.loanFeatureOnOff(1)
 
                 elif value=='off':
-                    sonali.loanFetureOnOff(0)
+                    sonali.loanFeatureOnOff(0)
 
                 else:
                     print('\n--------------warning-----------')
@@ -316,10 +316,10 @@ while(flag):
             elif op==7:
                 value=input('if you withdraw feature on/off please write (on/off) key word: ')
                 if value=='on':
-                    sonali.withdrawFetureOnOff(1)
+                    sonali.withdrawFeatureOnOff(1)
 
                 elif value=='off':
-                    sonali.withdrawFetureOnOff(0)
+                    sonali.withdrawFeatureOnOff(0)
 
                 else:
                     print('\n--------------warning-----------')
